@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,9 +49,7 @@ namespace CactEye
         {
             print("%$%");
 
-            path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
-            path = path.Replace(@"file:\", "");
-            path = path.Replace(@"GameData\CactEye\Plugins", @"GameData\CactEye\Resources\windowPos.cfg");
+            path = KSPUtil.ApplicationRootPath.Replace("\\", "/") + "GameData/CactEye/Resources/windowPos.cfg";
             print("path: " + path);
 
             windowPosCFG = ConfigNode.Load(path);

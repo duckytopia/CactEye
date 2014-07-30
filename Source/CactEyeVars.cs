@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,11 +31,8 @@ namespace CactEye
         {
             //print("ROOTPATH: |" + KSPUtil.ApplicationRootPath);
 
-            root = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
-            root = root.Replace(@"\", "/");
-            root = root.Replace("file:/", "");
-            root = root.Replace("GameData/CactEye/Plugins", "");
-
+            root = KSPUtil.ApplicationRootPath.Replace("\\", "/");
+            
             foreach (AssemblyLoader.LoadedAssembly assembly in AssemblyLoader.loadedAssemblies)
             {
                 if (assembly.name == "KAS")
